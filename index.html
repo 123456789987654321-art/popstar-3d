@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#05060f">
+<title>消灭星星 3D</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div>
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<!-- ============ 主菜单 ============ -->
+<div id="menu" class="screen">
+  <div class="menu-inner">
+    <h1 class="title">消灭星星<span class="t3d">3D</span></h1>
+    <p class="subtitle">立方体 · 六面 · 连消</p>
+    <div class="menu-btns">
+      <button class="mode-btn m-normal" data-mode="normal">
+        <span class="mb-name">普通模式</span>
+        <span class="mb-desc">经典节奏 · 慢慢清空整个立方体</span>
+      </button>
+      <button class="mode-btn m-challenge" data-mode="challenge">
+        <span class="mb-name">挑战模式</span>
+        <span class="mb-desc">限时闯关 · 立方体越清越大</span>
+      </button>
+    </div>
+    <div class="best-line">最高分 <b id="menuBest">0</b></div>
+    <button class="link-btn" id="btnHowto">玩法说明</button>
+    <p class="hint">拖动旋转视角 · 滚轮缩放 · 点击成组方块消除</p>
+  </div>
+</div>
+
+<!-- ============ 游戏内 HUD ============ -->
+<div id="hud" class="hidden">
+  <div class="hud-top">
+    <div class="hud-box hud-left">
+      <div class="hud-mode" id="hudMode">普通模式</div>
+      <div class="hud-level">第 <b id="hudLevel">1</b> 关</div>
+    </div>
+    <div class="hud-box hud-center hidden" id="hudTimerBox">
+      <div class="timer-num"><b id="timerNum">60</b><span>s</span></div>
+      <div class="timer-bar"><i id="timerFill"></i></div>
+    </div>
+    <div class="hud-box hud-right">
+      <div class="score" id="hudScore">0</div>
+      <div class="score-sub">目标 <span id="hudTarget">0</span></div>
+      <div class="prog"><i id="progFill"></i></div>
+    </div>
+  </div>
+  <div class="hud-bottom">
+    <div class="hud-box hud-left">
+      <div class="remain">剩余 <b id="hudRemain">0</b> 块</div>
+      <div class="stars" id="hudStars"></div>
+    </div>
+    <div class="hud-right btns">
+      <button class="icon-btn" id="btnHelp" title="玩法说明">?</button>
+      <button class="icon-btn" id="btnSound" title="音效开关">♪</button>
+      <button class="icon-btn" id="btnMenu" title="返回菜单">≡</button>
+    </div>
+  </div>
+</div>
+
+<div id="toasts"></div>
+<div id="tip"></div>
+<div id="banner"></div>
+<div id="overlay" class="hidden"><div class="ov-card" id="ovCard"></div></div>
+<div id="bootErr" class="hidden"></div>
+
+<script src="js/mathx.js"></script>
+<script src="js/board.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/scene.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
